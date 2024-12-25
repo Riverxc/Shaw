@@ -23,33 +23,45 @@
         button {
             padding: 10px 20px;
             font-size: 18px;
-            border: none;
+            border: 2px solid white;
             border-radius: 12px;
             cursor: pointer;
             background-color: #7190b4;
             color: white;
             margin: 10px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             width: 200px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         button:hover {
             background-color: #357abd;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.98);
         }
 
         .smaller-button {
             font-size: 16px;
             padding: 8px 16px;
             background-color: #6c757d;
+            border: 2px solid white;
         }
 
         .smaller-button:hover {
             background-color: #727980;
+            transform: scale(1.05);
+        }
+
+        .smaller-button:active {
+            transform: scale(0.98);
         }
 
         .text-content {
-            margin: 0 15%;
+            margin: 20px;
             text-indent: 2em;
             line-height: 1.6;
         }
@@ -74,6 +86,41 @@
             margin: 0 10%;
             margin-bottom: 20px;
         }
+
+        /* 卡片效果 */
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px; /* 限制最大宽度 */
+            width: 90%; /* 默认宽度占屏幕的90% */
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            .card {
+                width: 90%; /* 在小屏幕上占屏幕的90% */
+                margin: 10px; /* 增加边距，避免卡片太紧凑 */
+            }
+
+            .intro-text {
+                font-size: 18px; /* 适当减小字体 */
+                margin: 0 5%;
+            }
+
+            button {
+                width: 180px; /* 在小屏幕上稍微减小按钮宽度 */
+                font-size: 16px; /* 调整按钮文字大小 */
+            }
+
+            .smaller-button {
+                width: 160px; /* 在小屏幕上调整按钮宽度 */
+            }
+        }
     </style>
 </head>
 <body>
@@ -93,55 +140,67 @@
     </div>
 
     <div id="adam" class="gray-background" style="display: none;">
-        <div class="text-content">
-            <p>肖仔，又是新的一年了，祝你和弟妹长长久久。</p>
-            <p>你上次送我的那本《语言简洁的艺术》我看完了，然后我就拿去给Fitch看了，结果看到他看到一半被Randal拿走了。</p>
-            <p>为了庆祝你和弟妹又过了一年，所以我打算送你几本《贝斯男友养成日记》《小熊猫饲养手册》作为你们的新年礼物，不用谢我。</p>
+        <div class="card">
+            <div class="text-content">
+                <p>肖仔，又是新的一年了，祝你和弟妹长长久久。</p>
+                <p>你上次送我的那本《语言简洁的艺术》我看完了，然后我就拿去给Fitch看了，结果看到他看到一半被Randal拿走了。</p>
+                <p>为了庆祝你和弟妹又过了一年，所以我打算送你几本《贝斯男友养成日记》《小熊猫饲养手册》作为你们的新年礼物，不用谢我。</p>
+            </div>
         </div>
         <button class="smaller-button" onclick="goToPage('options')">返回</button>
     </div>
 
     <div id="jensen" class="gray-background" style="display: none;">
-        <div class="text-content">
-            <p>新年快乐啊肖仔，嗯Adam说要写留言，我也不知道要写些什么。</p>
-            <p>那就祝你们新的一年也甜甜蜜蜜，有空带着弟妹一块儿来吃火锅。</p>
-            <p>还是老样子，私人影院的门票我给你们留了几张，记得来拿。</p>
+        <div class="card">
+            <div class="text-content">
+                <p>新年快乐啊肖仔，嗯Adam说要写留言，我也不知道要写些什么。</p>
+                <p>那就祝你们新的一年也甜甜蜜蜜，有空带着弟妹一块儿来吃火锅。</p>
+                <p>还是老样子，私人影院的门票我给你们留了几张，记得来拿。</p>
+            </div>
         </div>
         <button class="smaller-button" onclick="goToPage('options')">返回</button>
     </div>
 
     <div id="fitch" class="gray-background" style="display: none;">
-        <div class="text-content">
-            <p>肖仔新年快乐，祝你们幸福开心。</p>
-            <p>^^</p>
+        <div class="card">
+            <div class="text-content">
+                <p>肖仔新年快乐，祝你们幸福开心。</p>
+                <p>^^</p>
+            </div>
         </div>
         <button class="smaller-button" onclick="goToPage('options')">返回</button>
     </div>
 
     <div id="randal" class="gray-background" style="display: none;">
-        <div class="text-content">
-            <p>肖仔！肖仔！肖仔！</p>
-            <p>祝我们乐队的大贝斯手Shaw新年快乐！天天开心！和弟妹长长久久！</p>
-            <p>Livehouse的新年活动记得带上弟妹一块儿来玩，散场了不许带着人又提前跑了，一起去吃火锅。</p>
-            <p>谁先溜走谁买单！</p>
+        <div class="card">
+            <div class="text-content">
+                <p>肖仔！肖仔！肖仔！</p>
+                <p>祝我们乐队的大贝斯手Shaw新年快乐！天天开心！和弟妹长长久久！</p>
+                <p>Livehouse的新年活动记得带上弟妹一块儿来玩，散场了不许带着人又提前跑了，一起去吃火锅。</p>
+                <p>谁先溜走谁买单！</p>
+            </div>
         </div>
         <button class="smaller-button" onclick="goToPage('options')">返回</button>
     </div>
 
     <div id="shen" class="gray-background" style="display: none;">
-        <div class="text-content">
-            <p>你这小子在我身边吵吵闹闹倒又是过了一年。</p>
-            <p>有空也带着她一起来我这儿吃个饭，你师母念叨了很久，就等着你带着人来。</p>
-            <p>我也祝你新的一年爱情学业都顺利，年轻人有时候还是要坦率一点嘛。</p>
-            <p>福备箕畴，万事顺遂。</p>
+        <div class="card">
+            <div class="text-content">
+                <p>你这小子在我身边吵吵闹闹倒又是过了一年。</p>
+                <p>有空也带着她一起来我这儿吃个饭，你师母念叨了很久，就等着你带着人来。</p>
+                <p>我也祝你新的一年爱情学业都顺利，年轻人有时候还是要坦率一点嘛。</p>
+                <p>福备箕畴，万事顺遂。</p>
+            </div>
         </div>
         <button class="smaller-button" onclick="goToPage('options')">返回</button>
     </div>
 
     <div id="wp" class="gray-background" style="display: none;">
-        <div class="text-content">
-            <p>小凌，新年快乐。</p>
-            <p>外婆爱你。</p>
+        <div class="card">
+            <div class="text-content">
+                <p>小凌，新年快乐。</p>
+                <p>外婆爱你。</p>
+            </div>
         </div>
         <button class="smaller-button" onclick="goToPage('options')">返回</button>
     </div>
