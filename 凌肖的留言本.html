@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>凌肖的留言本</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #99afe7, #e5c9fa);
+            color: #333;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            background-color: #7190b4;
+            color: white;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+            width: 200px;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .smaller-button {
+            font-size: 16px;
+            padding: 8px 16px;
+            background-color: #6c757d;
+        }
+
+        .smaller-button:hover {
+            background-color: #727980;
+        }
+
+        .text-content {
+            margin: 0 15%;
+            text-indent: 2em;
+            line-height: 1.6;
+        }
+
+        .text-content p {
+            margin: 20px 0;
+        }
+
+        .gray-background {
+            background-color: #f5f5f5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-text {
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            margin: 0 10%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="home" class="center">
+        <div class="intro-text">新的一年，凌肖收到了一个神秘的留言本</div>
+        <button onclick="goToPage('options')">查看留言</button>
+    </div>
+
+    <div id="options" class="center" style="display: none;">
+        <button onclick="goToPage('adam')">Adam</button>
+        <button onclick="goToPage('jensen')">Jensen</button>
+        <button onclick="goToPage('fitch')">Fitch</button>
+        <button onclick="goToPage('randal')">Randal</button>
+        <button onclick="goToPage('shen')">沈教授</button>
+        <button onclick="goToPage('wp')">神秘留言</button>
+        <button class="smaller-button" onclick="goToPage('home')">返回初始页面</button>
+    </div>
+
+    <div id="adam" class="gray-background" style="display: none;">
+        <div class="text-content">
+            <p>肖仔，又是新的一年了，祝你和弟妹长长久久。</p>
+            <p>你上次送我的那本《语言简洁的艺术》我看完了，然后我就拿去给Fitch看了，结果看到他看到一半被Randal拿走了。</p>
+            <p>为了庆祝你和弟妹又过了一年，所以我打算送你几本《贝斯男友养成日记》《小熊猫饲养手册》作为你们的新年礼物，不用谢我。</p>
+        </div>
+        <button class="smaller-button" onclick="goToPage('options')">返回</button>
+    </div>
+
+    <div id="jensen" class="gray-background" style="display: none;">
+        <div class="text-content">
+            <p>新年快乐啊肖仔，嗯Adam说要写留言，我也不知道要写些什么。</p>
+            <p>那就祝你们新的一年也甜甜蜜蜜，有空带着弟妹一块儿来吃火锅。</p>
+            <p>还是老样子，私人影院的门票我给你们留了几张，记得来拿。</p>
+        </div>
+        <button class="smaller-button" onclick="goToPage('options')">返回</button>
+    </div>
+
+    <div id="fitch" class="gray-background" style="display: none;">
+        <div class="text-content">
+            <p>肖仔新年快乐，祝你们幸福开心。</p>
+            <p>^^</p>
+        </div>
+        <button class="smaller-button" onclick="goToPage('options')">返回</button>
+    </div>
+
+    <div id="randal" class="gray-background" style="display: none;">
+        <div class="text-content">
+            <p>肖仔！肖仔！肖仔！</p>
+            <p>祝我们乐队的大贝斯手Shaw新年快乐！天天开心！和弟妹长长久久！</p>
+            <p>Livehouse的新年活动记得带上弟妹一块儿来玩，散场了不许带着人又提前跑了，一起去吃火锅。</p>
+            <p>谁先溜走谁买单！</p>
+        </div>
+        <button class="smaller-button" onclick="goToPage('options')">返回</button>
+    </div>
+
+    <div id="shen" class="gray-background" style="display: none;">
+        <div class="text-content">
+            <p>你这小子在我身边吵吵闹闹倒又是过了一年。</p>
+            <p>有空也带着她一起来我这儿吃个饭，你师母念叨了很久，就等着你带着人来。</p>
+            <p>我也祝你新的一年爱情学业都顺利，年轻人有时候还是要坦率一点嘛。</p>
+            <p>福备箕畴，万事顺遂。</p>
+        </div>
+        <button class="smaller-button" onclick="goToPage('options')">返回</button>
+    </div>
+
+    <div id="wp" class="gray-background" style="display: none;">
+        <div class="text-content">
+            <p>小凌，新年快乐。</p>
+            <p>外婆爱你。</p>
+        </div>
+        <button class="smaller-button" onclick="goToPage('options')">返回</button>
+    </div>
+
+    <script>
+        function goToPage(page) {
+            document.querySelectorAll('div.center, div.gray-background').forEach(div => div.style.display = 'none');
+            document.getElementById(page).style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
